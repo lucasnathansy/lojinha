@@ -53,10 +53,11 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
-
+    'asset_url' => env('ASSET_URL', null),
+    'asset_url' => env('ASSET_URL', 'public/'),
     'url' => env('APP_URL', 'http://localhost'),
 
-    'asset_url' => env('ASSET_URL'),
+
 
     /*
     |--------------------------------------------------------------------------
