@@ -10,7 +10,19 @@ class Produto extends Model
     use HasFactory;
 
     protected $fillable = [
-    'nome',
-    'valor',
+        'nome',
+        'valor',
     ];
+ 
+    public function getProdutosPesquisarIndex(string $search = '')
+    {
+        $produto = $this->where(function ($query) use ($search) {
+            if ($search) {
+                $query->where('nome', $search)
+                      ->orWhere('nome', 'LIKE', "%{$search}%"); 
+            }
+        })->get();
+
+        return $produto;
+    }
 }
